@@ -21,13 +21,21 @@ Write the `curl` request you'd use to retrieve a list of all donuts on the
 server.
 
 ```sh
-# your answer here
+curl --request GET http://10.13.105.206:3000/items
 ```
 
 Write an AJAX request to retrieve a list of all donuts on the server.
 
 ```js
-let getDonuts = /* your answer here */;
+let getDonuts = function(){
+$.ajax({                                    // $ is jquery, exercute ajax in ().  everything inside is an object literal
+url: 'http://10.13.105.206:3000/items',     // a key is url, retrieve a list of items
+type: 'GET'                                 // tell ajax to get
+})                                          // ajax takes these info and use it
+
+.done(logResponseBody)                      // register that function when you hear done
+.fail(logRequestError);                     // register that function when you hear fail
+};
 ```
 
 ## Request a Single Resource
@@ -36,13 +44,21 @@ Now, we want to get a single donut from the server. Write the `curl` request
 you'd use to retrieve a single donut, using whatever ID you'd like.
 
 ```sh
-# your answer here
+curl --request GET http://10.13.105.206:3000/
 ```
 
 Write an AJAX request to retrieve a single donut from the server.
 
 ```js
-let getDonut = /* your answer here */;
+let getDonut = function(){
+$.ajax({                                    // $ is jquery, exercute ajax in ().  everything inside is an object literal
+url: 'http://10.13.105.206:3000/items/<item#id>',          // a key is url, retrieve an items
+type: 'GET'                                 // tell ajax to get
+})                                          // ajax takes these info and use it
+
+.done(logResponseBody)                      // register that function when you hear done
+.fail(logRequestError);                     // register that function when you hear fail
+};
 ```
 
 ## Delete a Single Resource
@@ -51,13 +67,21 @@ Write the `curl` request you'd use to delete a single donut, using whatever ID
 you'd like.
 
 ```sh
-# your answer here
+curl --request DELETE http://10.13.105.206:3000/items/2005
 ```
 
 Write an AJAX request to delete a single donut from the server.
 
 ```js
-let deleteDonut = /* your answer here */;
+let deleteDonut = function(){
+$.ajax({                                    // $ is jquery, exercute ajax in ().  everything inside is an object literal
+url: 'http://10.13.105.206:3000/items/<item#id>',          // a key is url, retrieve an items
+type: 'DELETE'                                 // tell ajax to get
+})                                          // ajax takes these info and use it
+
+.done(logResponseBody)                      // register that function when you hear done
+.fail(logRequestError);                     // register that function when you hear fail
+};
 ```
 
 ## Create a Single Resource
@@ -73,20 +97,43 @@ data in JSON format.
 ```
 
 ```sh
-# your answer here
+curl --request POST http://localhost3000/items --header "Content-Type: application/json" --data '{ "content": "DDOS the server", "done": false, "list":1}
 ```
 
 Write an AJAX request to create a single donut on the server using JSON.
 
 ```js
-let createDonut = /* your answer here */;
+let createDonut = let createItem =  function(event) {
+  event.preventDefault();
+  $.ajax({
+    url: 'http://localhost:3000/items',
+    type: 'POST',
+    data: {
+      'content': $(event.target).find('#content').val(),
+      'done': $(event.target).find('#done').val(),
+      'list_id': $(event.target).find('#list-id').val()
+    }
+  })
+  .done(logResponseBody)
+  .fail(logRequestError);
+};
 ```
 
 Now, rewrite your AJAX request to use FormData. Assume you have already targeted
 the correct HTML form before registering your AJAX function with the form.
 
 ```js
-let createDonut = /* your answer here */;
+let createDonut = new FormData(event.target);
+  $.ajax({
+    url: 'http://localhost:3000/items' + itemId, // make this a variable
+    type: 'PATCH',
+    contentType: false,
+    processData: false,
+    data: item
+  })
+  .done(logResponseBody)
+  .fail(logRequestError)
+};
 ```
 
 ## Change a Single Resource
@@ -105,13 +152,38 @@ JSON.
 ```
 
 ```sh
-# your answer here
+# this is my comment
+curl --request PATCH http://10.13.105.206:3000/items/1 \
+ --header "Content-Type: application/json" \
+ --data '{
+   "done": true
+ }'
 ```
 
 Write an AJAX request to change the donut on the server using JSON.
 
 ```js
-let changeDonut = /* your answer here */;
+let changeDonut = function(event) {
+  event.preventDefault();
+  // data stores here
+  let itemIdInput = $(event.target).find('[name="name_id"]');
+  // pull the value out // .val() get value
+  //let itemId = $(event.target).find('[name="item_id"]').val(); // event.target is the form, access jquery method. [name=], pseudo id selector
+  let item = new FormData(event.target);
+  $.ajax({
+    url: 'http://localhost:3000/items' + itemId, // make this a variable
+    type: 'PATCH',
+    contentType: false,
+    processData: false,
+    data: item
+  })
+  .done(logResponseBody)
+  .fail(logRequestError);
+  // .val("") set value
+  //$(event.target).find('[name="item_id"]').val("");
+
+  itemIdInput.val('');
+};
 ```
 
 Now, rewrite your AJAX request to use FormData. Assume you have already targeted
