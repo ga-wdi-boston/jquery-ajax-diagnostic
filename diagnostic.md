@@ -20,61 +20,71 @@ machine serving the donuts is `http://www.example.com`.
 Write the `curl` request you'd use to retrieve a list of all donuts on the
 server.
 
-```sh
-# your answer here
-```
+curl --request GET http://www.example.com/donuts
+
 
 Write an AJAX request to retrieve a list of all donuts on the server.
 
-```js
-let getDonuts = /* your answer here */;
-```
+const getdonuts = (success,fail) => {
+console.log('Started request');
+$.ajax({
+  method: 'GET',
+  url: 'http://www.example.com/donuts',
+
+}).done(success)
+  .fail(fail);
+  console.log('Request queued');
+};
+
 
 ## Request a Single Resource
 
 Now, we want to get a single donut from the server. Write the `curl` request
 you'd use to retrieve a single donut, using whatever ID you'd like.
 
-```sh
-# your answer here
-```
+curl --include --request GET "http://www.example.com/donuts/$chocolate"
 
 Write an AJAX request to retrieve a single donut from the server.
 
-```js
-let getDonut = /* your answer here */;
-```
+const donut = (chocolate, success, fail) => {
+  console.log('Started request');
+    $.ajax({
+      method: 'GET',
+      url: 'http://www.example.com/donuts/' + chocolate
+
+    }).done(success).fail(fail);
+    console.log('Request queued');
+};
+
 
 ## Delete a Single Resource
 
 Write the `curl` request you'd use to delete a single donut, using whatever ID
 you'd like.
 
-```sh
-# your answer here
-```
+curl --include --request DELETE "http://www.example.com/donuts/$chocolate"
 
 Write an AJAX request to delete a single donut from the server.
 
-```js
-let deleteDonut = /* your answer here */;
-```
+let donut = $('#delete-form').find("[name='chocolate']").val();
+
 
 ## Create a Single Resource
 
 Write the `curl` request you'd use to create a single donut. Use the following
 data in JSON format.
 
-```json
+curl --include  --request POST http://www.example.com/donuts \
+  --header "Content-Type: application/json" \
+  --data '{
+    "donut": {
 {
   "name": "French Cruller",
   "price": "$0.99"
 }
-```
+}'
 
-```sh
-# your answer here
-```
+
 
 Write an AJAX request to create a single donut on the server using JSON.
 
