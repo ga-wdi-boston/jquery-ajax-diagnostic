@@ -21,13 +21,25 @@ Write the `curl` request you'd use to retrieve a list of all donuts on the
 server.
 
 ```sh
-# your answer here
+
+curl --request GET http://www.example.com/donuts
+
 ```
 
 Write an AJAX request to retrieve a list of all donuts on the server.
 
 ```js
-let getDonuts = /* your answer here */;
+let getDonuts = (success, fail) => {
+  console.log('Start request');
+  $.ajax({
+    method: 'GET',
+    url: 'http://www.example.com/donuts',
+  })
+  .done(success)
+  .done(fail)
+  console.log('Request queued')
+};
+
 ```
 
 ## Request a Single Resource
@@ -36,13 +48,22 @@ Now, we want to get a single donut from the server. Write the `curl` request
 you'd use to retrieve a single donut, using whatever ID you'd like.
 
 ```sh
-# your answer here
+curl --request GET "http://www.example.com/donuts/$ID"
 ```
 
 Write an AJAX request to retrieve a single donut from the server.
 
 ```js
-let getDonut = /* your answer here */;
+let getDonuts = (success, fail,  id) => {
+  console.log('Start request');
+$.ajax({
+  method: 'GET',
+  url: 'http://www.example.com/donuts/' + id,
+})
+.done(success)
+.done(fail)
+console.log('Request queued')
+};
 ```
 
 ## Delete a Single Resource
@@ -51,13 +72,21 @@ Write the `curl` request you'd use to delete a single donut, using whatever ID
 you'd like.
 
 ```sh
-# your answer here
+curl --include --request DELETE "http://www.example.com/donuts/$ID"
 ```
 
 Write an AJAX request to delete a single donut from the server.
 
 ```js
-let deleteDonut = /* your answer here */;
+let deleteDonut = (success, fail, id) => {
+  $.ajax({
+    method : 'DELETE',
+    url : "http://www.example.com/donuts/$ID"
+  }).success(success)
+    .fail(fail);
+};
+
+
 ```
 
 ## Create a Single Resource
@@ -73,13 +102,42 @@ data in JSON format.
 ```
 
 ```sh
-# your answer here
+curl --include --request POST http://www.example.com/donuts/ \
+  --header "Content-Type: application/json" \
+  --data '{
+    "donut": {
+      "name": "French Cruller",
+      "price": "$0.99"
+    }
+  }'
 ```
 
 Write an AJAX request to create a single donut on the server using JSON.
 
 ```js
-let createDonut = /* your answer here */;
+let createDonut = (success, fail, form, id) => {
+  console.log('Start request');
+  $.ajax({
+    method: 'POST',
+    url: 'http://www.example.com/donuts/',
+    processData: false,
+    data: form
+  })
+  .done(success)
+  .fail(fail);
+  console.log('Request queued');
+};
+
+// BUT do I also need to include this?
+// $(() => {
+//   $('#donut').on('submit', function (event){
+//     event.preventDefault();
+//     let form = getFormFields(event.target);
+//     let donutID = $('.donut-id').val();
+//       changeDonut(logResponseBody, logRequestError, form, donutID);
+//   });
+// });
+
 ```
 
 ## Change a Single Resource
@@ -98,11 +156,43 @@ JSON.
 ```
 
 ```sh
-# your answer here
+curl --include --request PATCH http://www.example.com/donuts/42 \
+  --header "Content-Type: application/json" \
+  --data '{
+    "donut": {
+      "name": "Krüller",
+    }
+  }'
+
 ```
 
 Write an AJAX request to change the donut on the server using JSON.
 
 ```js
-let changeDonut = /* your answer here */;
+// AJAX request:
+let changeDonut = (success, fail, form, id) => {
+  console.log('Start request');
+  $.ajax({
+    method: 'PATCH',
+    url: 'http://www.example.com/donuts/' + id,
+    processData: false,
+    data: form
+  })
+  .done(success)
+  .fail(fail);
+  console.log('Request queued');
+};
+
+// BUT do I also need to include this?
+//
+// $(() => {
+//   $('#donut').on('submit', function (event){
+//     event.preventDefault();
+//     let form = getFormFields(event.target);
+//     let donutID = $('.donut-id').val();
+//       changeDonut(logResponseBody, logRequestError, form, donutID);
+//   });
+// });
+
+
 ```
