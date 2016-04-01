@@ -1,3 +1,5 @@
+'use strict';
+
 # jQuery AJAX Diagnostic
 
 Place your answers inside the fenced code-blocks where indicated by comments.
@@ -21,13 +23,31 @@ Write the `curl` request you'd use to retrieve a list of all donuts on the
 server.
 
 ```sh
-# your answer here
-```
+curl --include --request GET http://www.example.com/donuts \
+
 
 Write an AJAX request to retrieve a list of all donuts on the server.
 
-```js
-let getDonuts = /* your answer here */;
+# ```js
+
+
+const getDonuts = (success, fail, list) => {
+  console.log('Start request');
+  # // debugger;
+  $.ajax({
+    method: 'GET',
+    url: 'http://www.exampl.com/donuts',
+    processData: false,
+    data: list,
+  })
+  .done(success)
+  .fail(fail);
+  console.log('Request queued');
+};
+
+module.exports = {
+  getDonuts,
+};
 ```
 
 ## Request a Single Resource
@@ -36,14 +56,29 @@ Now, we want to get a single donut from the server. Write the `curl` request
 you'd use to retrieve a single donut, using whatever ID you'd like.
 
 ```sh
-# your answer here
+curl --include --request GET 'http://www.example.com/donuts' + donut \
 ```
 
 Write an AJAX request to retrieve a single donut from the server.
 
 ```js
-let getDonut = /* your answer here */;
-```
+const getDonut = (success, fail, list, donut) => {
+  console.log('Start request');
+  # // debugger;
+  $.ajax({
+    method: 'GET',
+    url: 'http://www.exampl.com/donuts' + donut,
+    processData: false,
+    data: list,
+  })
+  .done(success)
+  .fail(fail);
+  console.log('Request queued');
+};
+
+module.exports = {
+  getDonut,
+};```
 
 ## Delete a Single Resource
 
@@ -51,14 +86,28 @@ Write the `curl` request you'd use to delete a single donut, using whatever ID
 you'd like.
 
 ```sh
-# your answer here
+curl --include --request DELETE 'http://www.example.com/donuts' + donut \
 ```
 
 Write an AJAX request to delete a single donut from the server.
 
 ```js
-let deleteDonut = /* your answer here */;
-```
+const deleteDonut = (success, fail, donut) => {
+  console.log('Start request');
+  # // debugger;
+  $.ajax({
+    method: 'DELETE',
+    url: 'http://www.exampl.com/donuts' + donut
+  })
+  .done(success)
+  .fail(fail);
+  console.log('Request queued');
+};
+
+module.exports = {
+  deleteDonut,
+}```
+
 
 ## Create a Single Resource
 
