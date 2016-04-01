@@ -82,13 +82,6 @@ Write an AJAX request to create a single donut on the server using JSON.
 let createDonut = /* your answer here */;
 ```
 
-Now, rewrite your AJAX request to use FormData. Assume you have already targeted
-the correct HTML form before registering your AJAX function with the form.
-
-```js
-let createDonut = /* your answer here */;
-```
-
 ## Change a Single Resource
 
 We don't want to sell French Crullers anymore. We've got a new German supplier,
@@ -109,13 +102,6 @@ JSON.
 ```
 
 Write an AJAX request to change the donut on the server using JSON.
-
-```js
-let changeDonut = /* your answer here */;
-```
-
-Now, rewrite your AJAX request to use FormData. Assume you have already targeted
-the correct HTML form before registering your AJAX function with the form.
 
 ```js
 let changeDonut = /* your answer here */;
