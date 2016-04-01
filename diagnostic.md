@@ -35,7 +35,7 @@ let getDonuts = () => {
     }
   )
   .done(logResponseBody)
-  .faile(logRequestError);
+  .fail(logRequestError);
 };
 ```
 
@@ -61,7 +61,7 @@ let getDonut = (id) => {
     }
   )
   .done(logResponseBody)
-  .faile(logRequestError);
+  .fail(logRequestError);
 };
 ```
 
@@ -87,7 +87,7 @@ let deleteDonut = (id) => {
     }
   )
   .done(logResponseBody)
-  .faile(logRequestError);
+  .fail(logRequestError);
 };
 ```
 
@@ -134,7 +134,7 @@ let createDonut = () => {
     }
   )
   .done(logResponseBody)
-  .faile(logRequestError);
+  .fail(logRequestError);
 };
 ```
 
@@ -182,6 +182,6 @@ let changeDonut = (id) => {
     }
   )
   .done(logResponseBody)
-  .faile(logRequestError);
+  .fail(logRequestError);
 };
 ```
