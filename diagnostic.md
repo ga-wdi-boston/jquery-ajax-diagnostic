@@ -154,7 +154,7 @@ curl --include --request PATCH http://example.com/donuts/42 \
   --data '{
     "donut": {
     "name": "Krüller"
-    }
+  } 
   }'
 ```
 
