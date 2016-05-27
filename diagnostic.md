@@ -33,7 +33,7 @@ let getDonuts = function(){
     method: 'GET'
   })
   .logResponseBody()
-  .logResponseError();
+  .logRequestError();
 };
 ```
 
@@ -57,7 +57,7 @@ let getDonut = function(donutID){
     method: 'GET',
   })
   .logResponseBody()
-  .logResponseError();
+  .logRequestError();
 };
 ```
 
@@ -81,7 +81,7 @@ let deleteDonut = function(donutToDelete){
     method: 'DELETE',
   })
   .logResponseBody()
-  .logResponseError();
+  .logRequestError();
 };
 ```
 
@@ -119,7 +119,7 @@ let createDonut = function(){
     }
   })
   .logResponseBody()
-  .logResponseError();
+  .logRequestError();
 };
 ```
 
@@ -158,6 +158,6 @@ let changeDonut = function(){
     }
   })
   .logResponseBody()
-  .logResponseError();
+  .logRequestError();
 };
 ```
