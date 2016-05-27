@@ -13,6 +13,7 @@ headers in its output.
 
 ## Request a Collection Resource
 
+
 Suppose we have an API serving donuts. We want to get a list of all donuts in
 the system. In other words, we want to `GET /donuts`. The hostname of the
 machine serving the donuts is `http://www.example.com`.
