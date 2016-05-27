@@ -85,10 +85,10 @@ data in JSON format.
 
 ```sh
 curl --include --request POST http://www.example.com/donuts/
-'{
+{
 "name": "French Cruller",
   "price": "$0.99"
-}'
+}
 ```
 
 Write an AJAX request to create a single donut on the server using JSON.
@@ -97,7 +97,7 @@ Write an AJAX request to create a single donut on the server using JSON.
 let createDonut = $.ajax({
     url: http://www.example.com/donuts/,
     method: 'POST',
-    data: '{ "name": "French Cruller", "price": "$0.99" }',
+    data: { "name": "French Cruller", "price": "$0.99" },
   });
 ```
 
@@ -118,9 +118,9 @@ JSON.
 
 ```sh
 curl --include --request PATCH http://www.example.com/donuts/42
-'{
+{
   "name": "Krüller"
-}'
+}
 ```
 
 Write an AJAX request to change the donut on the server using JSON.
@@ -129,7 +129,7 @@ Write an AJAX request to change the donut on the server using JSON.
 let changeDonut = $.ajax({
     url: http://www.example.com/donuts/42,
     method: 'PATCH',
-    data: '{ "name": "Krüller" }',
+    data: { "name": "Krüller" },
   });
 
 ```
