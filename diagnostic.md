@@ -131,7 +131,14 @@ object.
 ```
 
 ```sh
-curl --include --requet POST "http://www.example.com/donuts"
+curl --include --request PATCH "http://www.example.com/donuts/42" \
+  --header "Content-Type: application/json" \
+  --data "{
+    \"donut\" : {
+      \"name\" : \"Krüller\",
+      \"price\" : \"0.99\"
+    }
+  }"
 ```
 
 Write an AJAX request to change the donut on the server using JSON.
