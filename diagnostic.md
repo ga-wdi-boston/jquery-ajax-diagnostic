@@ -144,5 +144,14 @@ curl --include --request PATCH "http://www.example.com/donuts/42" \
 Write an AJAX request to change the donut on the server using JSON.
 
 ```js
-let changeDonut = /* your answer here */;
+const updateDonut = function (name, price){
+  return $.ajax({
+    url: "http://www.example.com/donuts",
+    method: 'PATCH',
+    data: {
+      name: this.name,
+      price: this.price
+    }
+  }
+});
 ```
