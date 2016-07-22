@@ -21,7 +21,7 @@ Write the `curl` request you'd use to retrieve a list of all donuts on the
 server.
 
 ```sh
-# your answer here
+curl --include --request GET "http://example.com/donuts"
 ```
 
 Write an AJAX request to retrieve a list of all donuts on the server.
@@ -36,7 +36,7 @@ Now, we want to get a single donut from the server. Write the `curl` request
 you'd use to retrieve a single donut, using whatever ID you'd like.
 
 ```sh
-# your answer here
+curl --include --request GET "http://example.com/donuts/:$ID"
 ```
 
 Write an AJAX request to retrieve a single donut from the server.
@@ -51,7 +51,7 @@ Write the `curl` request you'd use to delete a single donut, using whatever ID
 you'd like.
 
 ```sh
-# your answer here
+curl --include --request DELETE "http://example.com/donuts/:$ID"
 ```
 
 Write an AJAX request to delete a single donut from the server.
@@ -73,7 +73,15 @@ data in JSON format.
 ```
 
 ```sh
-# your answer here
+curl --include --request POST "http://example.com/donuts" \
+  --header "Content-Type: application/json" \
+    --data "{
+      \"donuts\": {
+        \"name\": \"French Cruller\",
+        \"price\": \"$0.99\"
+        }
+    }"
+
 ```
 
 Write an AJAX request to create a single donut on the server using JSON. Please
@@ -100,11 +108,27 @@ object.
 ```
 
 ```sh
-# your answer here
+curl --include --request PATCH "http://example.com/donuts/:$42" \
+  --header "Content-Type: application/json" \
+    --data "{
+      \"donuts\": {
+        \"name\": \"Krüller\",
+        }
+    }"
 ```
 
 Write an AJAX request to change the donut on the server using JSON.
 
 ```js
+const update = function () {
+  let data =
+  let id = data.donut.id;
+  return $.ajax({
+    url: app.host + '/donuts/' + id,
+    method: 'PATCH',
+    data: data,
+  });
+};
+
 let changeDonut = /* your answer here */;
 ```
