@@ -76,7 +76,8 @@ data in JSON format.
 # your answer here
 ```
 
-Write an AJAX request to create a single donut on the server using JSON.
+Write an AJAX request to create a single donut on the server using JSON. Please
+do not use `data = getFormFields(form)` instead write out the data object.
 
 ```js
 let createDonut = /* your answer here */;
@@ -89,7 +90,8 @@ so we need to change the name of the Cruller in our database. It has an ID of
 `42`.
 
 Write the `curl` request you'd use to change the donut. We'll send the following
-JSON.
+JSON. Please do not use `data = getFormFields(form)` instead write out the data
+object.
 
 ```json
 {
