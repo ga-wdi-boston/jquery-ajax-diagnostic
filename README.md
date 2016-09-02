@@ -26,15 +26,6 @@ and other [FAQs](https://github.com/ga-wdi-boston/meta/wiki/) related to
 [forking, cloning](https://github.com/ga-wdi-boston/meta/wiki/ForkAndClone),
 and [pull requests](https://github.com/ga-wdi-boston/meta/wiki/PullRequest).
 
-You may use **any resource** other than each other to complete this diagnostic.
-This includes referencing talk materials, appropriate documentation, and
-searching for help online.
-
-You should be running `grunt nag` before diagnosing any bugs, since it finds
-some of the most common sources of errors. After `grunt nag` passes, you should
-run `grunt test` to run the included tests. Tests will tell you whether of not
-your responses are correct.
-
 ## [License](LICENSE)
 
 -   All content is licensed under a CC­BY­NC­SA 4.0 license.
