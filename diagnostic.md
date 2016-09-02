@@ -17,14 +17,14 @@ Suppose we have an API serving donuts. We want to get a list of all donuts in
 the system. In other words, we want to `GET /donuts`. The hostname of the
 machine serving the donuts is `http://www.example.com`.
 
-Write the `curl` request you'd use to retrieve a list of all donuts on the
+Write the `curl` request you'd use to retrieve a list of **all donuts** on the
 server.
 
 ```sh
 # your answer here
 ```
 
-Write an AJAX request to retrieve a list of all donuts on the server.
+Write an AJAX request to retrieve a list of **all donuts** on the server.
 
 ```js
 let getDonuts = /* your answer here */;
@@ -32,14 +32,14 @@ let getDonuts = /* your answer here */;
 
 ## Request a Single Resource
 
-Now, we want to get a single donut from the server. Write the `curl` request
-you'd use to retrieve a single donut, using whatever ID you'd like.
+Now, we want to get a **single donut** from the server. Write the `curl` request
+you'd use to retrieve a **single donut**, using whatever ID you'd like.
 
 ```sh
 # your answer here
 ```
 
-Write an AJAX request to retrieve a single donut from the server.
+Write an AJAX request to retrieve a **single donut** from the server.
 
 ```js
 let getDonut = /* your answer here */;
@@ -47,8 +47,8 @@ let getDonut = /* your answer here */;
 
 ## Delete a Single Resource
 
-Write the `curl` request you'd use to delete a single donut, using whatever ID
-you'd like.
+Write the `curl` request you'd use to delete a single donut, using whatever
+ID you'd like.
 
 ```sh
 # your answer here
