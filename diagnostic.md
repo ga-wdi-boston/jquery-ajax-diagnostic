@@ -101,7 +101,18 @@ Write an AJAX request to create a single donut on the server using JSON. Please
 do not use `data = getFormFields(form)` instead write out the data object.
 
 ```js
-let createDonut = /* your answer here */;
+let createDonut = (data) => {
+  return $.ajax({
+    url: app.host + '/books',
+    method: 'POST',
+    data: data = '{
+      "Donut": {
+          "name": "Jelly",
+          "price": "0.99"
+        }
+      }'
+    };
+
 ```
 
 ## Change a Single Resource
