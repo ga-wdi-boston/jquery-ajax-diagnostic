@@ -21,14 +21,14 @@ Write the `curl` request you'd use to retrieve a list of **all donuts** on the
 server.
 
 ```sh
-curl --include --request GET http://www.example/donuts \
+curl --include --request GET http://www.example.com/donuts \
 ```
 
 Write an AJAX request to retrieve a list of **all donuts** on the server.
 
 ```js
 let getDonuts = $.ajax({
-    url: http://www.example/donuts,
+    url: http://www.example.com/donuts,
     method: 'GET',
   });
 };
@@ -40,7 +40,7 @@ Now, we want to get a **single donut** from the server. Write the `curl` request
 you'd use to retrieve a **single donut**, using whatever ID you'd like.
 
 ```sh
-curl --include --request GET "http://www.example/donuts/jelly"
+curl --include --request GET "http://www.example.com/donuts/jelly"
 ```
 
 Write an AJAX request to retrieve a **single donut** from the server.
@@ -48,7 +48,7 @@ Write an AJAX request to retrieve a **single donut** from the server.
 ```js
 let getDonut = function (id) {
   return $.ajax({
-    url: http://www.example/donuts/ + id,
+    url: http://www.example.com/donuts/ + id,
     method: 'GET',
   });
 };
@@ -60,7 +60,7 @@ Write the `curl` request you'd use to delete a single donut, using whatever
 ID you'd like.
 
 ```sh
-curl --include --request DELETE http://www.example/donuts/jelly \
+curl --include --request DELETE http://www.example.com/donuts/jelly \
 ```
 
 Write an AJAX request to delete a single donut from the server.
@@ -68,7 +68,7 @@ Write an AJAX request to delete a single donut from the server.
 ```js
 let deleteDonut = function (id) {
   return $.ajax({
-    url: http://www.example.donuts/ + id,
+    url: http://www.example.com/donuts/ + id,
     method: 'DELETE',
   });
 };
@@ -87,7 +87,14 @@ data in JSON format.
 ```
 
 ```sh
-# your answer here
+curl --include --request POST http://www.example.com/id \
+  --header "Content-Type: application/json" \
+  --data '{
+    "Donut": {
+      "name": "French Cruller",
+      "price": "0.99"
+    }
+  }'
 ```
 
 Write an AJAX request to create a single donut on the server using JSON. Please
