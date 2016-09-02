@@ -21,13 +21,17 @@ Write the `curl` request you'd use to retrieve a list of **all donuts** on the
 server.
 
 ```sh
-# your answer here
+curl --include --request GET http://www.example.com/donuts \
 ```
 
 Write an AJAX request to retrieve a list of **all donuts** on the server.
 
 ```js
-let getDonuts = /* your answer here */;
+let getDonuts = $.ajax({
+    url: http://www.example.com/donuts,
+    method: 'GET',
+  });
+};
 ```
 
 ## Request a Single Resource
@@ -36,13 +40,18 @@ Now, we want to get a **single donut** from the server. Write the `curl` request
 you'd use to retrieve a **single donut**, using whatever ID you'd like.
 
 ```sh
-# your answer here
+curl --include --request GET "http://www.example.com/donuts/jelly"
 ```
 
 Write an AJAX request to retrieve a **single donut** from the server.
 
 ```js
-let getDonut = /* your answer here */;
+let getDonut = function (id) {
+  return $.ajax({
+    url: http://www.example.com/donuts/ + id,
+    method: 'GET',
+  });
+};
 ```
 
 ## Delete a Single Resource
@@ -51,13 +60,18 @@ Write the `curl` request you'd use to delete a single donut, using whatever
 ID you'd like.
 
 ```sh
-# your answer here
+curl --include --request DELETE http://www.example.com/donuts/jelly \
 ```
 
 Write an AJAX request to delete a single donut from the server.
 
 ```js
-let deleteDonut = /* your answer here */;
+let deleteDonut = function (id) {
+  return $.ajax({
+    url: http://www.example.com/donuts/ + id,
+    method: 'DELETE',
+  });
+};
 ```
 
 ## Create a Single Resource
@@ -73,14 +87,32 @@ data in JSON format.
 ```
 
 ```sh
-# your answer here
+curl --include --request POST http://www.example.com/id \
+  --header "Content-Type: application/json" \
+  --data '{
+    "Donut": {
+      "name": "French Cruller",
+      "price": "0.99"
+    }
+  }'
 ```
 
 Write an AJAX request to create a single donut on the server using JSON. Please
 do not use `data = getFormFields(form)` instead write out the data object.
 
 ```js
-let createDonut = /* your answer here */;
+let createDonut = (data) => {
+  return $.ajax({
+    url: app.host + '/books',
+    method: 'POST',
+    data: data = '{
+      "Donut": {
+          "name": "Jelly",
+          "price": "0.99"
+        }
+      }'
+    };
+
 ```
 
 ## Change a Single Resource
