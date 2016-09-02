@@ -27,7 +27,11 @@ curl --include --request GET http://www.example/donuts \
 Write an AJAX request to retrieve a list of **all donuts** on the server.
 
 ```js
-let getDonuts = /* your answer here */;
+let getDonuts = $.ajax({
+    url: http://www.example/donuts,
+    method: 'GET',
+  });
+};
 ```
 
 ## Request a Single Resource
