@@ -48,7 +48,7 @@ Write an AJAX request to retrieve a **single donut** from the server.
 ```js
 let getDonut = function (id) {
   return $.ajax({
-    url: http://www.example/donuts + id,
+    url: http://www.example/donuts/ + id,
     method: 'GET',
   });
 };
@@ -60,13 +60,18 @@ Write the `curl` request you'd use to delete a single donut, using whatever
 ID you'd like.
 
 ```sh
-# your answer here
+curl --include --request DELETE http://www.example/donuts/jelly \
 ```
 
 Write an AJAX request to delete a single donut from the server.
 
 ```js
-let deleteDonut = /* your answer here */;
+let deleteDonut = function (id) {
+  return $.ajax({
+    url: http://www.example.donuts/ + id,
+    method: 'DELETE',
+  });
+};
 ```
 
 ## Create a Single Resource
