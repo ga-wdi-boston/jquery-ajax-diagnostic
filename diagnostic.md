@@ -88,14 +88,28 @@ data in JSON format.
 ```
 
 ```sh
-# your answer here
+curl --include --request "POST" "http://www.example.com/donuts" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "name": "French Cruller",
+    "price": "$0.99"
+  }'
 ```
 
 Write an AJAX request to create a single donut on the server using JSON. Please
 do not use `data = getFormFields(form)` instead write out the data object.
 
 ```js
-let createDonut = /* your answer here */;
+let createDonut = function () {
+  $.ajax({
+    url: 'http://www.example.com/donuts',
+    method: 'POST',
+    data: '{
+      "name": "French Cruller",
+      "price": "$0.99"
+    }'
+  });
+};
 ```
 
 ## Change a Single Resource
@@ -115,11 +129,23 @@ object.
 ```
 
 ```sh
-# your answer here
+curl --include --request PATCH 'http://www.example.com/donuts/42' \
+  --header "Content-Type: application/json" \
+  --data '{
+    "name": "Krüller"
+  }'
 ```
 
 Write an AJAX request to change the donut on the server using JSON.
 
 ```js
-let changeDonut = /* your answer here */;
+let changeDonut = function () {
+  return $.ajax({
+    url: 'http://www.example.com/donuts',
+    method: 'PATCH',
+    data: '{
+      "name": "Krüller"
+    }'
+  });
+};
 ```
