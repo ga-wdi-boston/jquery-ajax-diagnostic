@@ -40,7 +40,7 @@ Now, we want to get a **single donut** from the server. Write the `curl` request
 you'd use to retrieve a **single donut**, using whatever ID you'd like.
 
 ```sh
-# your answer here
+curl --include --request GET "http://www.example/donuts/jelly"
 ```
 
 Write an AJAX request to retrieve a **single donut** from the server.
