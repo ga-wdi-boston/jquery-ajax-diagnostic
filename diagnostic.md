@@ -21,7 +21,7 @@ Write the `curl` request you'd use to retrieve a list of **all donuts** on the
 server.
 
 ```sh
-# your answer here
+curl --include --request GET http://www.example/donuts \
 ```
 
 Write an AJAX request to retrieve a list of **all donuts** on the server.
