@@ -21,13 +21,19 @@ Write the `curl` request you'd use to retrieve a list of **all donuts** on the
 server.
 
 ```sh
-# your answer here
+curl --request POST 'http://www.example.com'\
 ```
 
 Write an AJAX request to retrieve a list of **all donuts** on the server.
 
 ```js
-let getDonuts = /* your answer here */;
+let getDonuts =
+$.ajax({
+  url: 'http://www.example.com',
+  data: data,
+  success: success,
+  dataType: dataType
+});;
 ```
 
 ## Request a Single Resource
@@ -42,7 +48,7 @@ you'd use to retrieve a **single donut**, using whatever ID you'd like.
 Write an AJAX request to retrieve a **single donut** from the server.
 
 ```js
-let getDonut = /* your answer here */;
+let getDonut = $ curl -X GET http://www.example.com '{id:"single donut"}';
 ```
 
 ## Delete a Single Resource
@@ -51,13 +57,12 @@ Write the `curl` request you'd use to delete a single donut, using whatever
 ID you'd like.
 
 ```sh
-# your answer here
-```
+$ curl -XDELETE```
 
 Write an AJAX request to delete a single donut from the server.
 
 ```js
-let deleteDonut = /* your answer here */;
+let deleteDonut = 'http://www.example.com' '{id: "single donut"}';'
 ```
 
 ## Create a Single Resource
@@ -73,7 +78,8 @@ data in JSON format.
 ```
 
 ```sh
-# your answer here
+let getDonut = $ curl -X POST http://www.example.com '{name:"French Cruller"}'
+ '{price: "$0.99"}';
 ```
 
 Write an AJAX request to create a single donut on the server using JSON. Please
@@ -81,6 +87,11 @@ do not use `data = getFormFields(form)` instead write out the data object.
 
 ```js
 let createDonut = /* your answer here */;
+
+.ajax({
+    url:
+
+})
 ```
 
 ## Change a Single Resource
