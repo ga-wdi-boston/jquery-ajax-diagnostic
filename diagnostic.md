@@ -154,8 +154,8 @@ Write an AJAX request to change the donut on the server using JSON.
 
 ```js
 let changeDonut = function(){
-  return $.ajax({
-    url: app.host + '/donuts/42', 
+  $.ajax({
+    url: app.host + '/donuts/42',
     method: 'PATCH',
     data: '{
       "donuts": {
