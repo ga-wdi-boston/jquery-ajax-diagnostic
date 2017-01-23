@@ -142,7 +142,7 @@ Write an AJAX request to change the donut on the server using JSON.
 ```js
 let changeDonut = function (id, data) {
   return $.ajax({
-    url: config.apiOrigin + '/donuts/' + id,
+    url: config.apiOrigin + '/donuts/' + data.donut.id,
     method: 'PATCH',
     data,
   });
