@@ -21,7 +21,10 @@ Write the `curl` request you'd use to retrieve a list of **all donuts** on the
 server.
 
 ```sh
-# your answer here
+
+curl --include --request GET http://www.example.com/donuts/
+or
+curl --include --request GET http://www.example.com/donuts/$ID (single donut)
 ```
 
 Write an AJAX request to retrieve a list of **all donuts** on the server.
@@ -36,13 +39,19 @@ Now, we want to get a **single donut** from the server. Write the `curl` request
 you'd use to retrieve a **single donut**, using whatever ID you'd like.
 
 ```sh
-# your answer here
+curl --include --request GET http://www.example.com/donuts/$ID
 ```
 
 Write an AJAX request to retrieve a **single donut** from the server.
 
 ```js
-let getDonut = /* your answer here */;
+let getDonut = $.ajax ({
+    url: 'http://www.example.com/donuts/',
+    method: 'GET'
+})
+    .pass(logResponseBody),
+    .fail(logRequestError);
+
 ```
 
 ## Delete a Single Resource
@@ -51,13 +60,18 @@ Write the `curl` request you'd use to delete a single donut, using whatever
 ID you'd like.
 
 ```sh
-# your answer here
+curl --include --request DELETE http://www.example.com/donuts/$ID
 ```
 
 Write an AJAX request to delete a single donut from the server.
 
 ```js
-let deleteDonut = /* your answer here */;
+let deleteDonut = $.ajax ({
+    url: 'http://www.example.com/donuts/',
+    method: 'DELETE'
+})
+    .pass(logResponseBody),
+    .fail(logRequestError);
 ```
 
 ## Create a Single Resource
@@ -73,7 +87,16 @@ data in JSON format.
 ```
 
 ```sh
-# your answer here
+curl --include --request POST http://www.example.com/donuts/$ID
+
+let postDonuts = $.ajax ({
+    url: 'http://www.example.com/donuts/',
+    method: 'POST',
+    name: "French Cruller",
+    price: "$0.99"
+})
+    .pass(logResponseBody),
+    .fail(logRequestError);
 ```
 
 Write an AJAX request to create a single donut on the server using JSON. Please
@@ -100,7 +123,7 @@ object.
 ```
 
 ```sh
-# your answer here
+curl --include --request PATCH http://www.example.com/donuts/$ID
 ```
 
 Write an AJAX request to change the donut on the server using JSON.
