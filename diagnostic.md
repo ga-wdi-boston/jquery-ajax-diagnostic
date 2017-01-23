@@ -27,12 +27,10 @@ curl --include --request GET http://www.example.com/donuts
 Write an AJAX request to retrieve a list of **all donuts** on the server.
 
 ```js
-let getDonuts = function () {
-  return $.ajax({
+let getDonuts = $.ajax({
     url: 'http://www.example.com/donuts',
     method: 'GET',
-  });
-};
+});
 ```
 
 ## Request a Single Resource
@@ -47,12 +45,10 @@ curl --include --request GET http://www.example.com/donuts/88
 Write an AJAX request to retrieve a **single donut** from the server.
 
 ```js
-let getDonut = function () {
-  return $.ajax({
-    url: 'http://www.example.com/donuts/88',
-    method: 'GET',
-  });
-};
+let getDonut = $.ajax({
+  url: 'http://www.example.com/donuts/88',
+  method: 'GET',
+});
 ```
 
 ## Delete a Single Resource
@@ -67,12 +63,10 @@ curl --include --request DELETE http://www.example.com/donuts/22
 Write an AJAX request to delete a single donut from the server.
 
 ```js
-let deleteDonut = function (id) {
-  return $.ajax({
-    url: 'http://www.example.com/donuts/' + id,
-    method: 'DELETE',
-  });
-};
+let deleteDonut = $.ajax({
+  url: 'http://www.example.com/donuts/22',
+  method: 'DELETE',
+});
 ```
 
 ## Create a Single Resource
@@ -101,16 +95,14 @@ Write an AJAX request to create a single donut on the server using JSON. Please
 do not use `data = getFormFields(form)` instead write out the data object.
 
 ```js
-let createDonut = function () {
-  return $.ajax({
-    url: 'http://www.example.com/donuts/',
-    method: 'POST',
-    data: {
-      "name": "French Cruller",
-      "price": "$0.99"
-    }
-  });
-};
+let createDonut = $.ajax({
+  url: 'http://www.example.com/donuts/',
+  method: 'POST',
+  data: {
+    "name": "French Cruller",
+    "price": "$0.99"
+  }
+});
 ```
 
 ## Change a Single Resource
@@ -143,13 +135,11 @@ curl --include --request PATCH http://www.example.com/donuts/42 \
 Write an AJAX request to change the donut on the server using JSON.
 
 ```js
-let changeDonut = function () {
-  return $.ajax({
-    url: 'http://www.example.com/42',
-    method: 'PATCH',
-    data: {
-      "name": "Krüller"
-    }
-  });
-};
+let changeDonut = $.ajax({
+  url: 'http://www.example.com/42',
+  method: 'PATCH',
+  data: {
+    "name": "Krüller"
+  }
+});
 ```
