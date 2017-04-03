@@ -30,7 +30,7 @@ Write an AJAX request to retrieve a list of **all donuts** on the server.
 let getDonuts = function () {
   console.log('donuts retrieval ran')
   return $.ajax({
-    url: app.host + '/donuts',
+    url: http://example.com + '/donuts',
     method: 'GET'
   })
 
@@ -53,7 +53,7 @@ Write an AJAX request to retrieve a **single donut** from the server.
 let getDonut = function () {
   console.log('donut retrieval by ID ran')
   return $.ajax({
-    url: app.host + '/donuts/singleDonutID999',
+    url: http://example.com + '/donuts/singleDonutID999',
     method: 'GET'
   });
 ```
@@ -73,7 +73,7 @@ Write an AJAX request to delete a single donut from the server.
 let destroyDonut = function () {
   console.log('donut deletion by ID ran')
   return $.ajax({
-    url: app.host + '/donuts/singleDonutID999',
+    url: http://example.com + '/donuts/singleDonutID999',
     method: 'DELETE'
   });
 ```
@@ -91,14 +91,28 @@ data in JSON format.
 ```
 
 ```sh
-# your answer here
+curl --include --request GET "http://example.com/donuts/" \
+    --header "Content-Type: application/json" \
+    --data '{
+      "donut": {
+        "name": "French Cruller",
+        "price": "$0.99"
+      }
+    }'
+
 ```
 
 Write an AJAX request to create a single donut on the server using JSON. Please
 do not use `data = getFormFields(form)` instead write out the data object.
 
 ```js
-let createDonut = /* your answer here */;
+let createDonut = function () {
+  console.log('trying to get a certain donut')
+  return $.ajax({
+    url: http://www.examples.com + '/donuts',
+    method:  'CREATE'
+  })
+}
 ```
 
 ## Change a Single Resource
@@ -115,10 +129,17 @@ object.
 {
   "name": "Krüller"
 }
+
 ```
 
 ```sh
-# your answer here
+curl --include --request PATCH "http://example.com/donuts/42" \
+    --header "Content-Type: application/json" \
+    --data '
+      "donut": {
+        "name": "Krüller"
+      }
+    }'
 ```
 
 Write an AJAX request to change the donut on the server using JSON.
