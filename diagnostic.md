@@ -135,9 +135,10 @@ object.
 ```sh
 curl --include --request PATCH "http://example.com/donuts/42" \
     --header "Content-Type: application/json" \
-    --data '
+    --data '{
       "donut": {
-        "name": "Krüller"
+        "name": ""Kruller,
+        "author": "Rebekah"
       }
     }'
 ```
