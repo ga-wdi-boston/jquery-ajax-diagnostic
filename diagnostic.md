@@ -21,13 +21,34 @@ Write the `curl` request you'd use to retrieve a list of **all donuts** on the
 server.
 
 ```sh
-# your answer here
+
+ curl --include --request GET http://localhost:4741/donuts
 ```
 
 Write an AJAX request to retrieve a list of **all donuts** on the server.
 
 ```js
-let getDonuts = /* your answer here */;
+$(() => {
+  $('#donuts-search').on('submit', donutEvents.getDonuts)
+}
+
+let getDonuts = function(event){
+  event.preventDefault()
+  donutsApi.index()
+  .then(logResponseBody)
+  .catch(logRequestError)
+}
+
+ const index = function(){
+  return $.ajax({
+    url: app.host + '/dounts',
+    method: GET
+  })
+}
+
+
+
+
 ```
 
 ## Request a Single Resource
@@ -36,13 +57,30 @@ Now, we want to get a **single donut** from the server. Write the `curl` request
 you'd use to retrieve a **single donut**, using whatever ID you'd like.
 
 ```sh
-# your answer here
+curl --include --request GET http://localhost:4741/donuts/45
 ```
 
 Write an AJAX request to retrieve a **single donut** from the server.
 
 ```js
-let getDonut = /* your answer here */;
+$(() => {
+  $('#donut-search').on('submit', donutEvents.getDonut)
+}
+
+let getDonut = function(event){
+  event.preventDefault()
+  donutsApi.index()
+  .then(logResponseBody)
+  .catch(logRequestError)
+}
+
+
+const show = function(id){
+  return $.ajax({
+    url: app.host +'/donuts' + id,
+    method: 'GET'
+  })
+}
 ```
 
 ## Delete a Single Resource
@@ -51,13 +89,34 @@ Write the `curl` request you'd use to delete a single donut, using whatever
 ID you'd like.
 
 ```sh
-# your answer here
+ID="10"
+curl "http://localhost:4741/donuts/$ID" \
+  --include \
+  --request DELETE \
+  --header "Content-Type: application/json"
+
+echo
 ```
 
 Write an AJAX request to delete a single donut from the server.
 
 ```js
-let deleteDonut = /* your answer here */;
+$(() => {
+  $('#donut-delete').on('submit', donutEvents.deleteDonut)
+}
+
+const deleteDonut = function (event) {
+  event.preventDefault()
+  const donut = getFormFields(event.target).donut
+  donutApi.destroy(donut.id)
+}
+
+let destroy =  function(id){
+  return $ajax({
+    url: app.host +'/dounts/' +id,
+    method: DELETE
+  })
+}
 ```
 
 ## Create a Single Resource
@@ -73,14 +132,35 @@ data in JSON format.
 ```
 
 ```sh
-# your answer here
+curl --include --request POST "http://localhost:4741/donuts" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "donuts": {
+      "name: "French Cruller",
+      "price": "$0.99"
+    }
+  }'
 ```
 
 Write an AJAX request to create a single donut on the server using JSON. Please
 do not use `data = getFormFields(form)` instead write out the data object.
 
 ```js
-let createDonut = /* your answer here */;
+
+const updateDonut= function(event){
+  event.preventDefault()
+  const data = ..
+  const donut = data.donut
+}
+
+
+let create = fucntion(data){
+  return $.ajax({
+    url: app.host + '/donuts/',
+    method: POST,
+    data = data
+  })
+}
 ```
 
 ## Change a Single Resource
@@ -100,11 +180,23 @@ object.
 ```
 
 ```sh
-# your answer here
+curl --include --request PATCH "http://localhost:4741/donuts/45" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "donuts": {
+      "name: "Kruller",
+    }
+  }'
 ```
 
 Write an AJAX request to change the donut on the server using JSON.
 
 ```js
-let changeDonut = /* your answer here */;
+let update = function(data){
+  return $.ajax({
+    url: app.host + '/donuts/' + data.donuts.id,
+    method: 'PATCH',
+    data: data
+  })
+}
 ```
