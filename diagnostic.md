@@ -21,13 +21,22 @@ Write the `curl` request you'd use to retrieve a list of **all donuts** on the
 server.
 
 ```sh
-# your answer here
+curl --include GET http://www.example.com/donuts
+
 ```
 
 Write an AJAX request to retrieve a list of **all donuts** on the server.
 
 ```js
-let getDonuts = /* your answer here */;
+let getDonuts = {
+  const index = function () {
+    return $.ajax({
+      url: app.host + '/books',
+      method: 'GET'
+    })
+  }
+}
+
 ```
 
 ## Request a Single Resource
@@ -36,7 +45,8 @@ Now, we want to get a **single donut** from the server. Write the `curl` request
 you'd use to retrieve a **single donut**, using whatever ID you'd like.
 
 ```sh
-# your answer here
+curl --include GET http://www.example.com/donuts/id=2
+
 ```
 
 Write an AJAX request to retrieve a **single donut** from the server.
