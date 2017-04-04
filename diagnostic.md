@@ -21,7 +21,7 @@ Write the `curl` request you'd use to retrieve a list of **all donuts** on the
 server.
 
 ```sh
-# your answer here
+$ Curl localhost:4741/donuts
 ```
 
 Write an AJAX request to retrieve a list of **all donuts** on the server.
@@ -36,7 +36,7 @@ Now, we want to get a **single donut** from the server. Write the `curl` request
 you'd use to retrieve a **single donut**, using whatever ID you'd like.
 
 ```sh
-# your answer here
+$ curl localhost:4741/donuts/25
 ```
 
 Write an AJAX request to retrieve a **single donut** from the server.
@@ -51,7 +51,7 @@ Write the `curl` request you'd use to delete a single donut, using whatever
 ID you'd like.
 
 ```sh
-# your answer here
+$ curl –include –request  DELETE localhost:4741/donuts/100
 ```
 
 Write an AJAX request to delete a single donut from the server.
@@ -73,7 +73,9 @@ data in JSON format.
 ```
 
 ```sh
-# your answer here
+
+$ curl -d "French Cruller", "$0.99" POST localhost:4741/donuts/
+
 ```
 
 Write an AJAX request to create a single donut on the server using JSON. Please
@@ -100,8 +102,12 @@ object.
 ```
 
 ```sh
-# your answer here
-```
+$.ajax({
+  method: "PATCH",
+  url: "some.php",
+  data: { name: "Krüller"}
+})
+
 
 Write an AJAX request to change the donut on the server using JSON.
 
