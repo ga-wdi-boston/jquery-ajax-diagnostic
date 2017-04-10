@@ -92,6 +92,14 @@ data in JSON format.
 
 ```sh
 # your answer here
+
+  curl --include --request POST http://www.example.com/donuts
+  --data'{
+  "donut:"{
+  "name": "French Cruller",
+  "price": "$0.99"
+}
+}'
 ```
 
 Write an AJAX request to create a single donut on the server using JSON. Please
