@@ -97,11 +97,9 @@ data in JSON format.
 curl --include --request POST "http://www.example.com/donuts" \
   --header "Content-Type: application/json" \
   --data '{
-  "donut": {
     "name": "French Cruller",
     "price": "$0.99"
-  }
-}'
+  }'
 ```
 
 Write an AJAX request to create a single donut on the server using JSON. Please
@@ -112,12 +110,12 @@ let createDonut = function(data){
   return $.ajax({
     url: app.host + '/books',
     method: 'POST',
-    data: '{
+    data: {
     "donut": {
       "name": "French Cruller",
       "price": "$0.99"
     }
-  }'
+  }
   })
 }
 
@@ -140,11 +138,23 @@ object.
 ```
 
 ```sh
-# your answer here
+curl --include --request PATCH http://localhost:3000/books/42 \
+    --header "Content-Type: application/json" \
+    --data '{
+      "name": "Krüller"
+    }'
 ```
 
 Write an AJAX request to change the donut on the server using JSON.
 
 ```js
-let changeDonut = /* your answer here */;
+let changeDonut = function(data){
+  return $.ajax({
+    url: http://www.example.com/donuts + '/donuts/42',
+    method: 'PATCH',
+    data: {
+      "name": "Krüller"
+    }
+  })
+}
 ```
