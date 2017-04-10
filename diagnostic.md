@@ -28,7 +28,7 @@ curl --include --request GET http://www.example.com
 Write an AJAX request to retrieve a list of **all donuts** on the server.
 
 ```js
-let getDonuts = $.get(http://www.example.com/donuts);
+let getDonuts = $.get("http://www.example.com/donuts");
 ```
 
 ## Request a Single Resource
@@ -44,7 +44,7 @@ curl --include --request GET http://www.example.com/donuts/5
 Write an AJAX request to retrieve a **single donut** from the server.
 
 ```js
-let getDonut = $.get(http://www.example.com/donuts/5);
+let getDonut = $.get("http://www.example.com/donuts/5");
 ```
 
 ## Delete a Single Resource
