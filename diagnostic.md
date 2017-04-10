@@ -22,12 +22,18 @@ server.
 
 ```sh
 # your answer here
+curl --include --request GET http://www.example.com/donuts
 ```
 
 Write an AJAX request to retrieve a list of **all donuts** on the server.
 
 ```js
-let getDonuts = /* your answer here */;
+let getDonuts = /* function(){
+  return $.ajax({
+  url:app.host + '/donuts',
+  method 'GET'
+})
+} */;
 ```
 
 ## Request a Single Resource
@@ -37,12 +43,18 @@ you'd use to retrieve a **single donut**, using whatever ID you'd like.
 
 ```sh
 # your answer here
+curl --include --request GET http://www.example.com/donuts/glazed
 ```
 
 Write an AJAX request to retrieve a **single donut** from the server.
 
 ```js
-let getDonut = /* your answer here */;
+let getDonut = /* functino(id){
+  return $.ajax({
+  url: app.host + '/donuts/' + id,
+  method: 'GET'
+})
+} */;
 ```
 
 ## Delete a Single Resource
@@ -52,12 +64,18 @@ ID you'd like.
 
 ```sh
 # your answer here
+curl --include --request DELETE http://www.example.com/donuts/butternut
 ```
 
 Write an AJAX request to delete a single donut from the server.
 
 ```js
-let deleteDonut = /* your answer here */;
+let deleteDonut = /* function(){
+  return $.ajax({
+  url: app.host + '/donuts/',
+  method: 'DELETE'
+})
+} */;
 ```
 
 ## Create a Single Resource
@@ -74,6 +92,15 @@ data in JSON format.
 
 ```sh
 # your answer here
+
+  curl --include --request POST http://www.example.com/donuts
+  --header "Content-Type: application/json" \
+  --data'{
+  "donut:"{
+  "name": "French Cruller",
+  "price": "$0.99"
+}
+}'
 ```
 
 Write an AJAX request to create a single donut on the server using JSON. Please
