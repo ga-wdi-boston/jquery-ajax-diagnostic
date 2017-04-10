@@ -41,13 +41,18 @@ Now, we want to get a **single donut** from the server. Write the `curl` request
 you'd use to retrieve a **single donut**, using whatever ID you'd like.
 
 ```sh
-# your answer here
+curl --include --request GET http://www.example.com/donuts/1
 ```
 
 Write an AJAX request to retrieve a **single donut** from the server.
 
 ```js
-let getDonut = /* your answer here */;
+let getDonut = function (donutId) {
+  return $.ajax({
+    url: app.host + '/donuts/' + donutId,
+    method: 'GET'
+  })
+}
 ```
 
 ## Delete a Single Resource
