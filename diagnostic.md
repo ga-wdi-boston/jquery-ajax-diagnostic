@@ -104,6 +104,8 @@ let createDonut = $.ajax({
   url: 'http://www.example.com/donuts/',
   type: 'POST',
   success: logResponseBody(),
+  dataType: "json",
+  contentType: "application/json"
   data: {
     "name": "French Cruller",
     "price": "$0.99"
@@ -146,6 +148,8 @@ Write an AJAX request to change the donut on the server using JSON.
 let changeDonut = $.ajax({
   url: 'http://www.example.com/donuts/5',
   type: 'PATCH',
+  dataType: "json",
+  contentType: "application/json"
   success: logResponseBody(),
   data: {
     "name": "Krüller"
