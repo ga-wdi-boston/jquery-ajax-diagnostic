@@ -23,7 +23,7 @@ server.
 ```sh
 
 curl --include --request --header "Content-Type: application/json" \
-  GET http://localhost:4741/donuts
+  GET http://www.example.com/donuts
 ```
 
 Write an AJAX request to retrieve a list of **all donuts** on the server.
@@ -44,7 +44,7 @@ you'd use to retrieve a **single donut**, using whatever ID you'd like.
 
 ```sh
 curl --include --request --header "Content-Type: application/json" \
-  GET http://localhost:4741/donuts/1
+  GET http://www.example.com/donuts/1
 ```
 
 Write an AJAX request to retrieve a **single donut** from the server.
@@ -64,7 +64,7 @@ Write the `curl` request you'd use to delete a single donut, using whatever
 ID you'd like.
 
 ```sh
-curl "http://localhost:4741/donuts/1" \
+curl "http://www.example.com/donuts/1" \
   --include \
   --request DELETE \
   --header "Content-Type: application/json"
@@ -94,7 +94,7 @@ data in JSON format.
 ```
 
 ```sh
-curl --include --request POST "http://localhost:4741/donuts/" \
+curl --include --request POST "http://www.example.com/donuts/" \
     --header "Content-Type: application/json" \
     --data '{
       "donut": {
@@ -139,7 +139,7 @@ object.
 ```
 
 ```sh
-curl --include --request PATCH "http://localhost:4741/donuts/42" \
+curl --include --request PATCH "http://www.example.com/donuts/42" \
   --header "Content-Type: application/json" \
   --data '{
     "donut": {
