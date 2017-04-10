@@ -104,12 +104,14 @@ Write an AJAX request to create a single donut on the server using JSON. Please
 do not use `data = getFormFields(form)` instead write out the data object.
 
 ```js
-let createDonut = function (data) {
+let createDonut = function () {
   return $.ajax({
-    url: app.host + '/books/' + data.book.id,
-    method: 'PATCH',
+    url: app.host + '/example/' + '6',
+    method: 'POST',
     data: '{
-      
+      "name": "French Cruller",
+      "price": "$0.99"
+    }
     }'
   })
 }
@@ -132,11 +134,29 @@ object.
 ```
 
 ```sh
-# your answer here
+curl "http://www.example.com/donuts/42" \
+--include \
+--request PATCH \
+--header "Content-Type: application/json" \
+--data '{
+  "name": "German Cruller",
+  "price": "$0.99"
+}
+}'
 ```
 
 Write an AJAX request to change the donut on the server using JSON.
 
 ```js
-let changeDonut = /* your answer here */;
+let changeDonut = function () {
+  return $.ajax({
+    url: app.host + '/example/' + '6',
+    method: 'PATCH',
+    data: '{
+      "name": "German Cruller",
+      "price": "$0.99"
+    }
+    }'
+  })
+}
 ```
