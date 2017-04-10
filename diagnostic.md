@@ -23,7 +23,7 @@ server.
 ```sh
 
 curl --include --request --header "Content-Type: application/json" \
-  GET http://www.example.com/donuts
+  GET "http://www.example.com/donuts"
 ```
 
 Write an AJAX request to retrieve a list of **all donuts** on the server.
@@ -31,7 +31,7 @@ Write an AJAX request to retrieve a list of **all donuts** on the server.
 ```js
 let getDonuts = function () {
   return $.ajax({
-    url: app.host + '/donuts',
+    url: 'http://www.example.com' + '/donuts',
     method: 'GET'
   })
 }
@@ -44,7 +44,7 @@ you'd use to retrieve a **single donut**, using whatever ID you'd like.
 
 ```sh
 curl --include --request --header "Content-Type: application/json" \
-  GET http://www.example.com/donuts/1
+  GET "http://www.example.com/donuts/1"
 ```
 
 Write an AJAX request to retrieve a **single donut** from the server.
@@ -52,7 +52,7 @@ Write an AJAX request to retrieve a **single donut** from the server.
 ```js
 let getDonut = function () {
   return $.ajax({
-    url: app.host + '/donuts/' + donutId,
+    url: 'http://www.example.com' + '/donuts/1',
     method: 'GET'
   })
 }
@@ -75,7 +75,7 @@ Write an AJAX request to delete a single donut from the server.
 ```js
 let deleteDonut = function (data) {
   return $.ajax({
-    url: app.host + '/donuts/1',
+    url: 'http://www.example.com' + '/donuts/1',
     method: 'DELETE'
   })
 }
@@ -110,7 +110,7 @@ do not use `data = getFormFields(form)` instead write out the data object.
 ```js
 let createDonut = = function(){
   return $.ajax({
-    url: app.host + '/donuts',
+    url: 'http://www.example.com' + '/donuts',
     method: 'POST',
     data: {
       "donut": {
@@ -154,7 +154,7 @@ Write an AJAX request to change the donut on the server using JSON.
 ```js
 let changeDonut = function (data) {
   return $.ajax({
-    url: app.host + '/donuts/42'
+    url: 'http://www.example.com' + '/donuts/42'
     method: 'PATCH',
     data: {
       "donut": {
