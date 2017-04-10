@@ -141,13 +141,4 @@ let changeDonut = function () {
     method: POST
   })
 }
-
-
-
-let createDonut = function () {
-  return $.ajax({
-    url:
-    method: POST
-  })
-};
 ```
