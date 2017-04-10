@@ -134,11 +134,25 @@ object.
 ```
 
 ```sh
-# your answer here
+curl --include --request PATCH http://www.example.com/donuts/42 \
+  --header "Authorization: Token token=$TOKEN" \
+  --data '{
+    "name": "Krüller",
+    "price": "$0.99"
+  }'
 ```
 
 Write an AJAX request to change the donut on the server using JSON.
 
 ```js
-let changeDonut = /* your answer here */;
+let changeDonut = function() {
+  return $.ajax({
+    url: http://www.example.com/donuts/42,
+    method: 'PATCH',
+    headers: "Authorization: Token token=$TOKEN",
+    data: '{
+      "name": "Krüller",
+      "price": "$0.99"
+    }';
+;
 ```
