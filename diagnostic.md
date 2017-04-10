@@ -21,13 +21,18 @@ Write the `curl` request you'd use to retrieve a list of **all donuts** on the
 server.
 
 ```sh
-# your answer here
+curl --include -- request http://www.example.com/donuts
 ```
 
 Write an AJAX request to retrieve a list of **all donuts** on the server.
 
 ```js
-let getDonuts = /* your answer here */;
+let getDonuts = function () {
+  return $.ajax({
+    url: app.host + '/donuts',
+    method: 'GET'
+  })
+}
 ```
 
 ## Request a Single Resource
