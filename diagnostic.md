@@ -94,6 +94,7 @@ data in JSON format.
 # your answer here
 
   curl --include --request POST http://www.example.com/donuts
+  --header "Content-Type: application/json" \
   --data'{
   "donut:"{
   "name": "French Cruller",
