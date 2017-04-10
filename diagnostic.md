@@ -105,7 +105,7 @@ do not use `data = getFormFields(form)` instead write out the data object.
 
 ```js
 let createDonut = function(data){
-  let data = '{"donut": {"name": "'"French Cruller"'", "price": "$0.99"}}'
+  let data = '{"donut": {"name": "'"French Cruller"'", "price": "'"$0.99"'"}}'
   return $.ajax({
     url: app.host + '/donuts',
     method: 'POST',
