@@ -21,7 +21,7 @@ Write the `curl` request you'd use to retrieve a list of **all donuts** on the
 server.
 
 ```sh
-# your answer here
+curl --include --request GET http://www.example.com/donuts
 ```
 
 Write an AJAX request to retrieve a list of **all donuts** on the server.
@@ -36,13 +36,14 @@ Now, we want to get a **single donut** from the server. Write the `curl` request
 you'd use to retrieve a **single donut**, using whatever ID you'd like.
 
 ```sh
-# your answer here
+curl --include --request GET http://www.example.com/donuts/1
 ```
 
 Write an AJAX request to retrieve a **single donut** from the server.
 
 ```js
-let getDonut = /* your answer here */;
+let getDonut =
+
 ```
 
 ## Delete a Single Resource
@@ -51,8 +52,8 @@ Write the `curl` request you'd use to delete a single donut, using whatever
 ID you'd like.
 
 ```sh
-# your answer here
-```
+curl --include --request DELETE http://www.example.com/donuts/1 \
+  --header "Authorization: Token token=$TOKEN"```
 
 Write an AJAX request to delete a single donut from the server.
 
