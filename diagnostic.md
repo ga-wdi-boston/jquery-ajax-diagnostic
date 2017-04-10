@@ -88,14 +88,30 @@ data in JSON format.
 ```
 
 ```sh
-# your answer here
+curl "http://www.example.com/donuts/${ID}" \
+--include \
+--request POST \
+--header "Content-Type: application/json" \
+--data '{
+  "donut": {
+    "name": "'"${NAME}"'",
+    "price": "'"${PRICE}"'"
+  }
+}'
 ```
 
 Write an AJAX request to create a single donut on the server using JSON. Please
 do not use `data = getFormFields(form)` instead write out the data object.
 
 ```js
-let createDonut = /* your answer here */;
+let createDonut = function(data){
+  let data = '{"donut": {"name": "'"French Cruller"'", "price": "$0.99"}}'
+  return $.ajax({
+    url: app.host + '/donuts',
+    method: 'POST',
+    data,
+  });
+}
 ```
 
 ## Change a Single Resource
