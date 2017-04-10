@@ -54,7 +54,7 @@ ID you'd like.
 
 ```sh
 #!/bin/bash
-ID="11"
+
 curl "http://www.example.com/donuts/5" \
   --include \
   --request DELETE \
