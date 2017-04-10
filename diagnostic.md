@@ -73,9 +73,8 @@ let deleteDonut = function() {
     url: http://www.example.com/donuts,
     method: 'DELETE',
     headers: {
-    Authorization: 'Token token=' + store.user.token}
+    Authorization: 'Token token='
 })
-  })
 };
 ```
 
@@ -103,7 +102,7 @@ curl --include --request POST http://www.example.com/donuts/ \
 Write an AJAX request to create a single donut on the server using JSON. Please
 do not use `data = getFormFields(form)` instead write out the data object.
 
-```js
+```sh
 const data = '{
   "name": "French Cruller",
   "price": "$0.99"
@@ -154,5 +153,4 @@ let changeDonut = function() {
       "name": "Krüller",
       "price": "$0.99"
     }';
-;
 ```
