@@ -27,7 +27,12 @@ curl --include --request GET http://www.example.com/donuts
 Write an AJAX request to retrieve a list of **all donuts** on the server.
 
 ```js
-let getDonuts = /* your answer here */;
+let getDonuts = function() {
+  return $.ajax({
+    url: http://www.example.com/donuts,
+    method: 'POST'
+  })
+};
 ```
 
 ## Request a Single Resource
@@ -42,7 +47,12 @@ curl --include --request GET http://www.example.com/donuts/1
 Write an AJAX request to retrieve a **single donut** from the server.
 
 ```js
-let getDonut =
+let getDonut = function() {
+  return $.ajax({
+    url: http://www.example.com/donuts/1,
+    method: 'POST'
+  })
+};
 
 ```
 
@@ -58,7 +68,15 @@ curl --include --request DELETE http://www.example.com/donuts/1 \
 Write an AJAX request to delete a single donut from the server.
 
 ```js
-let deleteDonut = /* your answer here */;
+let deleteDonut = function() {
+  return $.ajax({
+    url: http://www.example.com/donuts,
+    method: 'DELETE',
+    headers: {
+    Authorization: 'Token token=' + store.user.token}
+})
+  })
+};
 ```
 
 ## Create a Single Resource
@@ -74,14 +92,29 @@ data in JSON format.
 ```
 
 ```sh
-# your answer here
+curl --include --request POST http://www.example.com/donuts/ \
+  --header "Content-Type: application/json"\
+  --data '{
+    "name": "French Cruller",
+    "price": "$0.99"
+ }' ```
 ```
 
 Write an AJAX request to create a single donut on the server using JSON. Please
 do not use `data = getFormFields(form)` instead write out the data object.
 
 ```js
-let createDonut = /* your answer here */;
+const data = '{
+  "name": "French Cruller",
+  "price": "$0.99"
+}'
+let createDonut = function(data) {
+  return $.ajax({
+    url: http://www.example.com/donuts,
+    method: 'POST',
+    headers: "Content-Type: application/json",
+    data;
+
 ```
 
 ## Change a Single Resource
