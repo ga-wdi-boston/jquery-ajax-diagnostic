@@ -21,13 +21,18 @@ Write the `curl` request you'd use to retrieve a list of **all donuts** on the
 server.
 
 ```sh
-# your answer here
+curl --include --request GET http://www.example.com
 ```
 
 Write an AJAX request to retrieve a list of **all donuts** on the server.
 
 ```js
-let getDonuts = /* your answer here */;
+let getDonuts = function (event) {
+  return $.ajax({
+  url:'http://www.example.com/donuts',
+  method: 'GET',
+  });
+};
 ```
 
 ## Request a Single Resource
@@ -36,13 +41,18 @@ Now, we want to get a **single donut** from the server. Write the `curl` request
 you'd use to retrieve a **single donut**, using whatever ID you'd like.
 
 ```sh
-# your answer here
+curl --include --request GET 'http://www.example.com/donuts/$25'
 ```
 
 Write an AJAX request to retrieve a **single donut** from the server.
 
 ```js
-let getDonut = /* your answer here */;
+let getDonut = function (event) {
+  return $.ajax({
+  url:'http://www.example.com/donuts' + 25,
+  method: 'GET',
+  });
+};
 ```
 
 ## Delete a Single Resource
@@ -51,13 +61,18 @@ Write the `curl` request you'd use to delete a single donut, using whatever
 ID you'd like.
 
 ```sh
-# your answer here
+curl --include --request DELETE 'http://www.example.com/donuts/$25'
 ```
 
 Write an AJAX request to delete a single donut from the server.
 
 ```js
-let deleteDonut = /* your answer here */;
+let deleteDonut = function (form) {
+  return $.ajax({
+    url: 'http://www.example.com/donuts' + 25,
+    method: 'DELETE',
+  });
+};
 ```
 
 ## Create a Single Resource
@@ -73,14 +88,33 @@ data in JSON format.
 ```
 
 ```sh
-# your answer here
+curl --include --request 'POST' 'http://www.example.com/donuts/' \
+  --header "Content-Type: application/json" \
+  --data $'{
+    "donut": {
+      "name": "French Cruller",
+      "price": "$0.99"
+    }
+  }'
 ```
 
 Write an AJAX request to create a single donut on the server using JSON. Please
 do not use `data = getFormFields(form)` instead write out the data object.
 
 ```js
-let createDonut = /* your answer here */;
+let data = {"donut": {
+  "name": "French Cruller",
+  "price": "$0.99"
+  }
+};
+
+let createDonut = function (data) {
+  return $.ajax({
+    url: 'http://www.example.com/donuts/',
+    method: 'POST',
+    data: data,
+  });
+};
 ```
 
 ## Change a Single Resource
@@ -100,11 +134,23 @@ object.
 ```
 
 ```sh
-# your answer here
+curl --include --request PATCH 'http://www.example.com/donut/42'
+   --header "Content-Type: application/json" \
+     --data $'{
+       "donut": {
+         "name": "Krüller",
+       }
+     }'
 ```
 
 Write an AJAX request to change the donut on the server using JSON.
 
 ```js
-let changeDonut = /* your answer here */;
+let changeDonut = $.ajax({
+     url: 'http://www.example.com/donut/42',
+     method: 'PATCH',
+     data: { "donut" : { "name" : "Krüller" } }
+   })
+   .done(logResponseBody)
+   .fail(logRequestError);
 ```
