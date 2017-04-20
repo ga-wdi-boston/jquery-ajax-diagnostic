@@ -22,6 +22,8 @@ server.
 
 ```sh
 # your answer here
+
+curl --request GET 'http://www.example.com'
 ```
 
 Write an AJAX request to retrieve a list of **all donuts** on the server.
@@ -42,7 +44,12 @@ you'd use to retrieve a **single donut**, using whatever ID you'd like.
 Write an AJAX request to retrieve a **single donut** from the server.
 
 ```js
-let getDonut = /* your answer here */;
+let getDonut = function (id) {
+  return $.ajax({
+    url: example.com + id,
+    method: 'GET',
+  });
+};
 ```
 
 ## Delete a Single Resource
@@ -51,13 +58,23 @@ Write the `curl` request you'd use to delete a single donut, using whatever
 ID you'd like.
 
 ```sh
-# your answer here
+let deleteDonut = function (id) {
+  return $.ajax({
+    url: example.com + Id,
+    method: 'DELETE',
+  });
+};
 ```
 
 Write an AJAX request to delete a single donut from the server.
 
 ```js
-let deleteDonut = /* your answer here */;
+let deleteDonut = function (id) {
+  return $.ajax({
+    url: example.com + Id,
+    method: 'DELETE',
+  });
+};
 ```
 
 ## Create a Single Resource
@@ -93,10 +110,15 @@ Write the `curl` request you'd use to change the donut. We'll send the following
 JSON. Please do not use `data = getFormFields(form)` instead write out the data
 object.
 
-```json
+```curl --include --request PATCH \
+"http://www.example.com" \
+--header "Content-Type: application/json" \
+--data
 {
   "name": "Krüller"
-}
+}''
+
+
 ```
 
 ```sh
